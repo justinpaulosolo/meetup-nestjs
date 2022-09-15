@@ -1,5 +1,6 @@
 import React from "react";
-import {RegisterForm} from "../components/forms/RegisterForm";
+import { RegisterForm } from "../components/forms/RegisterForm";
+import { register } from "../utils/services/userServices";
 
 type UserRegister = {
   firstName: string;
@@ -7,15 +8,14 @@ type UserRegister = {
   email: string;
   password: string;
   confirmPassword: string;
-}
+};
 
 export const RegisterPage = () => {
-
   const onSubmit = (data: UserRegister) => {
-    console.log(data);
+    register(data)
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err));
   };
 
-  return (
-    <RegisterForm onSubmit={onSubmit} />
-  )
-}
+  return <RegisterForm onSubmit={onSubmit} />;
+};
