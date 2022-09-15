@@ -3,6 +3,13 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+  app.setGlobalPrefix('api');
+
+  try {
+    await app.listen(5000);
+    console.log('Running on port 5000');
+  } catch (err) {
+    console.log(err);
+  }
 }
 bootstrap();
