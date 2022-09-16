@@ -11,13 +11,11 @@ export const databaseProviders = [
         username: process.env.MYSQL_DB_USERNAME,
         password: process.env.MYSQL_DB_PASSWORD,
         database: process.env.MYSQL_DB_NAME,
-        entities: [
-          __dirname + '/../**/*.entity{.ts,.js}',
-        ],
+        entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         synchronize: true,
       });
 
       return dataSource.initialize();
-    }
-  }
-]
+    },
+  },
+];
